@@ -136,8 +136,8 @@ func TestLegalMovesExcludeSuicideAndKo(t *testing.T) {
 func TestScoreFilledPartition(t *testing.T) {
 	// Columns 0-4 black, 5-8 white; every point a stone, no territory.
 	var b Board
-	for r := 0; r < N; r++ {
-		for c := 0; c < N; c++ {
+	for r := range N {
+		for c := range N {
 			if c <= 4 {
 				b[idx(r, c)] = 1
 			} else {

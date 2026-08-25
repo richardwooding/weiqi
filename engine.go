@@ -138,7 +138,7 @@ func ApplyMove(b Board, colour int8, idx int, forbidden Board) (Board, []int, er
 // excluding suicide and ko. Used by both the UI and the bot.
 func LegalMoves(b Board, colour int8, forbidden Board) []int8 {
 	var out []int8
-	for idx := 0; idx < N*N; idx++ {
+	for idx := range N * N {
 		if b[idx] != 0 {
 			continue
 		}
@@ -179,7 +179,7 @@ func floodEmpty(b *Board, seen []bool, start int) (size int, touchB, touchW bool
 // white. A region bordering both colours (or neither) is neutral (dame).
 func territory(b Board) (black, white int) {
 	seen := make([]bool, N*N)
-	for idx := 0; idx < N*N; idx++ {
+	for idx := range N * N {
 		if b[idx] != 0 || seen[idx] {
 			continue
 		}
